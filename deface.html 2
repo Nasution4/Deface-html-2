@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Madina Cyber Team</title>
+<meta name="theme-color" content="black"/>
+<meta property="og:image" content="https://e.top4top.io/p_24180cst90.jpg">
+<meta name="description" content="{ madina cyber team }">
+
+<link href="https://fonts.googleapis.com/css?family=Kelly+Slab" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body {
+    margin:0;
+    background:black;
+    color:white;
+    font-family:'Kelly Slab', cursive;
+    overflow-x:hidden;
+}
+
+/* EFEK GLITCH PADA BACKGROUND */
+body::after {
+    content:'';
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(rgba(255,0,0,0.03) 1px, transparent 1px),
+               linear-gradient(90deg, rgba(255,0,0,0.03) 1px, transparent 1px);
+    background-size:50px 50px;
+    animation:scanlines 0.5s linear infinite;
+    pointer-events:none;
+    z-index:999;
+    opacity:0.7;
+}
+
+@keyframes scanlines {
+    0% { background-position:0 0; }
+    100% { background-position:0 50px; }
+}
+
+/* ANIMASI GARIS LURUS PUTIH KE BAWAH SAAT AWAL DIBUKA */
+body::before {
+    content:'';
+    position:fixed;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:2px;
+    height:0;
+    background:white;
+    z-index:9999;
+    animation:garisTurun 1.5s ease-out forwards;
+}
+
+@keyframes garisTurun {
+    0% {
+        height:0;
+        opacity:1;
+    }
+    80% {
+        height:100vh;
+        opacity:1;
+    }
+    100% {
+        height:100vh;
+        opacity:0;
+    }
+}
+
+.tengahken {
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:10px;
+    position:relative;
+}
+
+/* EFEK GLITCH PADA KONTEN */
+.glitch {
+    position:relative;
+    animation:glitch 5s infinite;
+}
+
+@keyframes glitch {
+    0%, 100% { transform:translate(0); }
+    1%, 3% { transform:translate(-2px, 2px); }
+    2%, 4% { transform:translate(2px, -2px); }
+    5% { transform:translate(0); }
+    96% { transform:translate(0); }
+    97% { transform:translate(5px, -1px); opacity:0.8; }
+    98% { transform:translate(-5px, 1px); opacity:0.8; }
+    99% { transform:translate(0); opacity:1; }
+}
+
+/* TEKS KEDIP DENGAN EFEK ERROR */
+m{
+    animation:faymek 1s alternate infinite, textGlitch 3s infinite;
+    color:black;
+    background:white;
+    padding:5px 10px;
+    position:relative;
+}
+
+@keyframes textGlitch {
+    0%, 100% { 
+        text-shadow:0 0 red, 0 0 lime;
+        clip-path:inset(0 0 0 0);
+    }
+    25% {
+        text-shadow:-1px 0 red, 1px 0 lime;
+        clip-path:inset(10% 0 30% 0);
+    }
+    50% {
+        text-shadow:1px 0 red, -1px 0 lime;
+        clip-path:inset(40% 0 10% 0);
+    }
+    75% {
+        text-shadow:-2px 0 red, 2px 0 lime;
+        clip-path:inset(20% 0 40% 0);
+    }
+}
+
+/* GAMBAR RESPONSIVE + ANIMASI ASLI + EFEK ERROR */
+img{
+    width:130vw;
+    max-width:350px;
+    height:auto;
+    animation:fayimg 2s, imageDistort 10s infinite;
+    filter:contrast(1.2) brightness(0.9);
+}
+
+@keyframes imageDistort {
+    0%, 100% { 
+        transform:scale(1) rotate(0deg);
+        filter:contrast(1.2) brightness(0.9) hue-rotate(0deg);
+    }
+    33% {
+        transform:scale(1.01) rotate(0.1deg);
+        filter:contrast(1.5) brightness(1.1) hue-rotate(5deg);
+    }
+    66% {
+        transform:scale(0.99) rotate(-0.1deg);
+        filter:contrast(0.9) brightness(0.8) hue-rotate(-5deg);
+    }
+}
+
+/* ANIMASI GARIS TURUN (TETAP DIPERTAHANKAN) */
+@keyframes fayimg{
+    0%{
+        width:0px;
+        height:0px;
+    }
+    20%{
+        height:0;
+    }
+    30%{
+        width:0px;
+        height:0;
+    }
+    80%{
+        width:0;
+        height:70vh;
+    }
+    100%{
+        width:90vw;
+        max-width:600px;
+        height:auto;
+    }
+}
+
+marquee{
+    border:1px solid red;
+    padding:5px;
+    max-width:90vw;
+    animation:borderPulse 2s infinite, marqueeGlitch 7s infinite;
+    background:rgba(255,0,0,0.05);
+}
+
+@keyframes borderPulse {
+    0%, 100% { 
+        border-color:red;
+        box-shadow:0 0 5px red;
+    }
+    50% { 
+        border-color:#ff4444;
+        box-shadow:0 0 15px red, 0 0 25px rgba(255,0,0,0.3);
+    }
+}
+
+@keyframes marqueeGlitch {
+    0%, 100% { transform:translateX(0); }
+    95% { transform:translateX(0); }
+    96% { transform:translateX(3px); }
+    97% { transform:translateX(-3px); }
+    98% { transform:translateX(0); }
+}
+
+/* ANIMASI KEDIP DENGAN VARIASI */
+@keyframes faymek{
+    0%{background:black; color:black;}
+    10%{background:red; color:white;}
+    30%{background:black; color:black;}
+    40%{background:red; color:white;}
+    49%{background:black; color:black;}
+    60%{background:red; color:white;}
+    63%{background:black; color:black;}
+    69%{background:red; color:white;}
+    70%{background:black; color:black;}
+    80%{background:red; color:white;}
+    85%{background:black; color:black;}
+    90%{background:red; color:white;}
+    100%{background:black; color:black;}
+}
+
+/* RESPONSIVE TEKS DENGAN EFEK */
+.title{
+    font-size:7vw;
+    animation:titleGlitch 8s infinite;
+    position:relative;
+}
+
+@keyframes titleGlitch {
+    0%, 100% { 
+        text-shadow:0 0 10px rgba(255,0,0,0.5);
+        letter-spacing:normal;
+    }
+    50% {
+        text-shadow:0 0 20px rgba(255,0,0,0.8), 0 0 30px rgba(255,0,0,0.4);
+        letter-spacing:1px;
+    }
+    98% { opacity:1; }
+    99% { opacity:0.3; }
+    99.5% { opacity:1; }
+}
+
+@media(min-width:600px){
+    .title{
+        font-size:42px;
+    }
+}
+
+.subtitle{
+    font-size:5vw;
+    position:relative;
+}
+
+@media(min-width:600px){
+    .subtitle{
+        font-size:28px;
+    }
+}
+
+/* EFEK PIXELATION RANDOM */
+.pixelate {
+    animation:pixelate 5s infinite;
+}
+
+@keyframes pixelate {
+    0%, 100% { filter:none; }
+    2% { filter:url('#pixelate'); }
+    3% { filter:none; }
+    97% { filter:none; }
+    98% { filter:url('#pixelate'); }
+}
+
+/* EFEK STATIC NOISE */
+.noise {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.03"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)"/></svg>');
+    pointer-events:none;
+    z-index:998;
+    animation:noise 0.2s infinite;
+}
+
+@keyframes noise {
+    0%, 100% { opacity:0.03; }
+    50% { opacity:0.06; }
+}
+
+/* EFEK CRACK SCREEN */
+.crack {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(45deg, transparent 49%, rgba(255,0,0,0.1) 50%, transparent 51%),
+               linear-gradient(-45deg, transparent 49%, rgba(255,0,0,0.1) 50%, transparent 51%);
+    background-size:20px 20px;
+    animation:crackMove 20s linear infinite;
+    pointer-events:none;
+    z-index:997;
+    opacity:0;
+    animation:fadeCrack 30s infinite;
+}
+
+@keyframes crackMove {
+    0% { background-position:0 0; }
+    100% { background-position:100px 100px; }
+}
+
+@keyframes fadeCrack {
+    0%, 90% { opacity:0; }
+    95% { opacity:0.3; }
+    100% { opacity:0; }
+}
+
+/* AUDIO TERSEMBUNYI */
+.hidden-audio {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* EFEK FLASH RANDOM */
+.flash {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:white;
+    z-index:10000;
+    pointer-events:none;
+    opacity:0;
+    animation:randomFlash 15s infinite;
+}
+
+@keyframes randomFlash {
+    0%, 96%, 98%, 100% { opacity:0; }
+    97% { opacity:0.3; }
+    99% { opacity:0.1; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- EFEK FILTER UNTUK PIXELATION -->
+<svg style="position:absolute; width:0; height:0;" xmlns="http://www.w3.org/2000/svg">
+    <filter id="pixelate" x="0" y="0">
+        <feFlood x="2" y="2" height="1" width="1"/>
+        <feComposite width="4" height="4"/>
+        <feTile result="a"/>
+        <feComposite in="SourceGraphic" in2="a" operator="in"/>
+        <feMorphology operator="dilate" radius="1"/>
+    </filter>
+</svg>
+
+<!-- ELEMEN EFEK TAMBAHAN -->
+<div class="noise"></div>
+<div class="crack"></div>
+<div class="flash"></div>
+
+<!-- AUDIO YANG TERSEMBUNYI DAN OTOMATIS BUNYI -->
+<audio autoplay loop class="hidden-audio">
+    <source src="https://l.top4top.io/m_3665tvklh0.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung elemen audio.
+</audio>
+
+<div class="tengahken glitch">
+
+    <img src="https://i.ibb.co.com/CFBMZFm/Simbol-digital-dengan-bayangan-misterius.png" class="pixelate">
+
+    
+   
+    <div class="title">
+        HACKED BY 
+        <span style="color:red; animation:colorShift 3s infinite;">-NST_XPLOIT</span>
+    </div>
+
+    <br>
+
+    <div class="subtitle">
+        <m>{ System Error 404 }</m>
+    </div>
+    <br>
+
+    <i style="font-size:16px; animation:textFlicker 7s infinite;">
+        { Website  ini telah diretas seseorang yg  beridentitas online Nst_Xploit. MADINA SEC TEAM  adalah kelompok hacker yang dipimpin langsung oleh NST_XPLOIT yang sering kali melakukan aksi peretasan defacement. kelompok ini sangat ditakuti oleh masyarakat dan juga pemerintah daerah kota. }
+    </i>
+
+    </br>
+    <marquee scrollamount="5" behavior="alternate">
+        Hacker Nasution - System Error 404
+    </marquee>
+
+    <br><br>
+
+</div>
+
+<script>
+// Script untuk memastikan audio otomatis diputar
+document.addEventListener('DOMContentLoaded', function() {
+    const audio = document.querySelector('audio');
+    
+    // Coba putar audio
+    const playAudio = function() {
+        audio.play().catch(function(error) {
+            console.log('Auto-play prevented:', error);
+            // Coba lagi setelah interaksi pengguna
+            document.body.addEventListener('click', function playOnce() {
+                audio.play();
+                document.body.removeEventListener('click', playOnce);
+            });
+        });
+    };
+    
+    // Tunggu sedikit untuk memastikan halaman dimuat
+    setTimeout(playAudio, 500);
+    
+    // EFEK ERROR RANDOM PADA TEKS
+    const errorTexts = document.querySelectorAll('.title, .subtitle, i, marquee');
+    
+    function triggerRandomError() {
+        const randomElement = errorTexts[Math.floor(Math.random() * errorTexts.length)];
+        const originalHTML = randomElement.innerHTML;
+        
+        // Simulasi error dengan karakter acak
+        if(Math.random() > 0.7) {
+            const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`';
+            const text = randomElement.textContent;
+            let newText = '';
+            
+            for(let i = 0; i < text.length; i++) {
+                if(Math.random() > 0.8 && chars.includes(text[i]) === false) {
+                    newText += chars[Math.floor(Math.random() * chars.length)];
+                } else {
+                    newText += text[i];
+                }
+            }
+            
+            randomElement.textContent = newText;
+            
+            // Kembalikan ke original setelah delay
+            setTimeout(() => {
+                randomElement.innerHTML = originalHTML;
+            }, 100 + Math.random() * 400);
+        }
+    }
+    
+    // Trigger error random setiap 2-5 detik
+    setInterval(triggerRandomError, 2000 + Math.random() * 3000);
+    
+    // EFEK FLICKER RANDOM PADA ELEMEN
+    function randomFlicker() {
+        document.querySelectorAll('*').forEach(el => {
+            if(Math.random() > 0.99 && el !== document.body) {
+                const originalOpacity = window.getComputedStyle(el).opacity;
+                el.style.opacity = '0.3';
+                
+                setTimeout(() => {
+                    el.style.opacity = originalOpacity;
+                }, 50 + Math.random() * 150);
+            }
+        });
+    }
+    
+    setInterval(randomFlicker, 500);
+    
+    // EFEK SHAKE RANDOM
+    function randomShake() {
+        if(Math.random() > 0.95) {
+            document.body.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+            
+            setTimeout(() => {
+                document.body.style.transform = 'translate(0, 0)';
+            }, 100);
+        }
+    }
+    
+    setInterval(randomShake, 1000);
+});
+
+// Tambahkan style untuk animasi tambahan
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes colorShift {
+        0%, 100% { color:red; }
+        33% { color:#ff4444; }
+        66% { color:#ff0000; }
+    }
+    
+    @keyframes textFlicker {
+        0%, 100% { opacity:1; }
+        97% { opacity:1; }
+        98% { opacity:0.5; }
+        99% { opacity:1; }
+    }
+    
+    .title span {
+        display:inline-block;
+        animation:colorShift 3s infinite, shake 0.5s infinite;
+    }
+    
+    @keyframes shake {
+        0%, 100% { transform:translateX(0); }
+        25% { transform:translateX(-1px); }
+        75% { transform:translateX(1px); }
+    }
+`;
+document.head.appendChild(style);
+</script>
+
+</body>
+</html>
